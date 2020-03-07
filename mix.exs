@@ -9,7 +9,16 @@ defmodule Spigot.Mixfile do
       build_embedded: Mix.env() == :prod,
       start_permanent: Mix.env() == :prod,
       description: "XMPP transport for runlets",
-      deps: deps()
+      deps: deps(),
+      dialyzer: [
+        list_unused_filters: true,
+        flags: [
+          "-Wunmatched_returns",
+          :error_handling,
+          :race_conditions,
+          :underspecs
+        ]
+      ]
     ]
   end
 
@@ -35,8 +44,8 @@ defmodule Spigot.Mixfile do
       {:fast_xml, "~> 1.1.29", override: true, manager: :rebar3},
       {:hedwig_xmpp, "~> 1.0.0"},
       {:runlet, git: "https://github.com/msantos/runlet.git"},
-      {:credo, "~> 0.9.1", only: [:dev, :test], runtime: false},
-      {:dialyxir, "~> 1.0.0-rc.6", only: [:dev], runtime: false}
+      {:credo, "~> 1.2", only: [:dev, :test], runtime: false},
+      {:dialyxir, "~> 1.0.0-rc.7", only: [:dev], runtime: false}
     ]
   end
 end
