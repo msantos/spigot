@@ -26,7 +26,10 @@ defmodule Spigot.Mixfile do
   #
   # Type "mix help compile.app" for more information
   def application do
-    [applications: [:logger, :hedwig_xmpp, :ex_rated], mod: {Spigot, []}]
+    [
+      applications: [:logger, :hedwig_xmpp, :ex_rated, :runlet],
+      mod: {Spigot, []}
+    ]
   end
 
   # Dependencies can be Hex packages:
