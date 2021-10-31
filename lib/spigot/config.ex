@@ -10,9 +10,6 @@ defmodule Spigot.Config do
   def aka(), do: get(:spigot, Spigot.Robot, :aka)
   def rooms(), do: get(:spigot, Spigot.Robot, :rooms)
 
-  def debug(),
-    do: get(:spigot, Spigot.Robot, :debug, false)
-
   def get(app, key, subkey, default \\ nil) do
     case Application.get_env(app, key) do
       nil -> default

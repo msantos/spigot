@@ -1,4 +1,6 @@
 defmodule Spigot.Responders.Runlet do
+  require Logger
+
   @moduledoc false
 
   use Hedwig.Responder
@@ -13,7 +15,7 @@ defmodule Spigot.Responders.Runlet do
 
   @spec sh(Hedwig.Message.t(), String.t()) :: :ok
   def sh(msg, pipeline) do
-    if Spigot.Config.debug(), do: :error_logger.info_report(runlet: msg)
+    Logger.debug(%{runlet: msg})
 
     case Spigot.Utility.fork(msg, pipeline) do
       {:error, error} ->

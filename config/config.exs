@@ -9,7 +9,6 @@ config :spigot, Spigot.Robot,
   jid: {:system, "EVENTBOT_JID"},
   aka: {:system, "EVENTBOT_ALIAS"},
   rooms: {:system, "EVENTBOT_ROOMS"},
-  debug: {:system, "EVENTBOT_DEBUG"},
   responders: [
     {Spigot.Responders.Runlet, []}
   ]
