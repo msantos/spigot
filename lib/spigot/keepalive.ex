@@ -12,8 +12,8 @@ defmodule Spigot.Keepalive do
   end
 
   defp run(msg, seconds) do
-    Hedwig.Robot.send(Spigot.Utility.whereis(), msg)
     :timer.sleep(:timer.seconds(seconds))
+    Hedwig.Robot.send(Spigot.Utility.whereis(), msg)
     run(msg, seconds)
   end
 end

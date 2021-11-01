@@ -17,28 +17,19 @@ defmodule Spigot.Ctrl.Info do
     %Runlet.Event{
       event: %Runlet.Event.Ctrl{
         service: "info",
-        description: "Configuration\n=============\n#{e}"
+        description: "_bot configuration_\n\n#{e}"
       },
       query: "info"
     }
   end
 
   defp config(%Runlet{}) do
-    [
-      name: Spigot.Config.name(),
-      aka: Spigot.Config.aka(),
-      jid: Spigot.Config.jid(),
-      rooms: Spigot.Config.rooms()
-    ]
-    |> Enum.map(fn
-      {k, v} when is_list(v) ->
-        ["#{k}=", Enum.map(v, fn {n, _} -> "#{n}" end)]
-        |> List.flatten()
-        |> Enum.join("\n")
-
-      {k, v} ->
-        "#{k}=#{v}"
-    end)
-    |> Enum.join("\n")
+    """
+    *name*: #{Spigot.Config.name()}
+    *alias*: #{Spigot.Config.aka()}
+    *jid*: #{Spigot.Config.jid()}
+    *rooms*:
+    #{Spigot.Config.rooms() |> Enum.map(fn {room, _} -> "* " <> room end) |> Enum.join("\n")}
+    """
   end
 end
