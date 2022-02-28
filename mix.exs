@@ -46,9 +46,10 @@ defmodule Spigot.Mixfile do
       {:romeo, git: "https://github.com/scrogson/romeo.git", override: true},
       {:fast_xml, "~> 1.1.29", override: true, manager: :rebar3},
       {:hedwig_xmpp, "~> 1.0.0"},
-      {:runlet, git: "https://github.com/msantos/runlet.git"},
-      {:credo, "~> 1.2", only: [:dev, :test], runtime: false},
-      {:dialyxir, "~> 1.0.0-rc.7", only: [:dev], runtime: false}
+      {:runlet, "~> 1.1"},
+      {:credo, "~> 1.6", only: [:dev, :test], runtime: false},
+      {:dialyxir, "~> 1.0", only: [:dev], runtime: false},
+      {:ex_doc, "~> 0.24", only: :dev, runtime: false}
     ]
   end
 end
