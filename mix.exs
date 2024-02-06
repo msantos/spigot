@@ -43,9 +43,10 @@ defmodule Spigot.Mixfile do
   # Type "mix help deps" for more examples and options
   defp deps do
     [
-      {:romeo, git: "https://github.com/scrogson/romeo.git", override: true},
+      {:romeo, git: "https://github.com/kerryb/romeo.git", override: true},
       {:fast_xml, "~> 1.1", override: true, manager: :rebar3},
-      {:hedwig_xmpp, "~> 1.0.0"},
+      {:hedwig_xmpp,
+       github: "msantos/hedwig_xmpp", branch: "crash", override: true},
       {:runlet, "~> 1.2"},
       {:credo, "~> 1.6", only: [:dev, :test], runtime: false},
       {:dialyxir, "~> 1.1", only: [:dev], runtime: false},
